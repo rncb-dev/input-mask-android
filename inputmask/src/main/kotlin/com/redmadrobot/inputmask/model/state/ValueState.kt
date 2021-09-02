@@ -56,7 +56,7 @@ class ValueState : State {
             is StateType.Ellipsis -> when (this.type.inheritedType) {
                 is StateType.Numeric -> character.isDigit()
                 is StateType.Literal -> character.isLetter()
-                is StateType.AlphaNumeric -> character.isLetterOrDigit()
+                is StateType.AlphaNumeric -> character.isLetterOrDigit() || character == ' '
                 is StateType.Custom -> this.type.inheritedType.characterSet.contains(character)
                 else -> false
             }
